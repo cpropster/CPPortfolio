@@ -1,55 +1,32 @@
-import React, { useState, useEffect } from "react";
-import { Modal, Button, Form, FormControl } from "react-bootstrap";
+import React /* useState */ from "react";
+import { Form } from "react-bootstrap";
 
-const Login = ({ login }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [modal, setModal] = useState(false);
-
-  const handleClose = () => setModal(false);
-  const handleShow = () => setModal(true);
-
-  const onSubmit = (ev) => {
-    ev.preventDefault();
-    login({ username, password }).catch((ex) =>
-      setError("Username & Password Don't Match")
-    );
-  };
-
+const Login = () => {
   return (
     <div>
-      <>
-        <a onClick={handleShow}>Login</a>
-        <Modal show={modal} onHide={handleClose}>
-          <Form onSubmit={onSubmit}>
-            <Modal.Header closeButton>
-              <Modal.Title>Login To Your Account</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              {error}
-              <FormControl
-                type="text"
-                placeholder="Username"
-                value={username}
-                onChange={(ev) => setUsername(ev.target.value)}
+      <div className="text-center">
+        <h1 className="logo">Med Educt</h1>
+        <h4>Learning Simplified</h4>
+      </div>
+      <br />
+      <Form
+        className="form-inline justify-content-center"
+        method="GET"
+        action="/api/auth"
+      >
+        <Form.Group>
+          <p>
+            <a className="btn btn-outline-dark" href="/api/auth" role="button">
+              <img
+                width="25px"
+                alt="Google sign-in"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
               />
-              <br />
-              <FormControl
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(ev) => setPassword(ev.target.value)}
-              />
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="primary" onClick={onSubmit}>
-                Login
-              </Button>
-            </Modal.Footer>
-          </Form>
-        </Modal>
-      </>
+              &nbsp;&nbsp;&nbsp; Login with Google
+            </a>
+          </p>
+        </Form.Group>
+      </Form>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 {
-  "name": "video-roulette-v1",
+  "name": "cloudblaze-v1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -29,11 +29,14 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "aws-sdk": "^2.732.0",
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
     "bootstrap": "^4.4.1",
+    "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "css-loader": "^3.5.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jest": "^25.2.7",
     "jquery": "^3.5.1",
@@ -42,6 +45,8 @@
     "popper.js": "^1.16.1",
     "precss": "^4.0.0",
     "react-bootstrap": "^1.0.1",
-    "style-loader": "^1.2.1"
+    "regenerator-runtime": "^0.13.7",
+    "style-loader": "^1.2.1",
+    "uuid": "^8.3.0"
   }
 }
