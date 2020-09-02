@@ -1,7 +1,4 @@
-body {
-  font-family: "Muli";
-}
-
+/* Sitewide */
 html,
 body {
   width: 100%;
@@ -9,4 +6,300 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+}
+
+/* Set text preferences for entire site */
+
+body {
+  font-family: "Cardo", serif;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+  color: white;
+  text-transform: uppercase;
+}
+
+.btn {
+  font-family: "Oswald", sans-serif;
+}
+
+/* creating a white brand logo instead of black */
+.invert {
+  -webkit-filter: grayscale(1) invert(1);
+  filter: grayscale(1) invert(1);
+}
+
+/* Changing the nav to be fit for dark background */
+.nav-link {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  color: white !important;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+@media (min-width: 567px) {
+  .navbar-brand {
+    margin-left: 4rem;
+  }
+  .navbar {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+
+.white-toggler.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.white-toggler.navbar-toggler {
+  border-color: white;
+}
+
+.white-toggler.navbar-toggler:focus {
+  outline-color: white;
+}
+
+@media (min-width: 567px) {
+  .abs-center-x {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Home page video needs to be under the nav bar and fit to all screen formats */
+.video-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.video-container video {
+  /* Make video to at least 100% wide and tall */
+  min-width: 100%;
+  min-height: 100%;
+
+  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+  width: auto;
+  height: auto;
+
+  /* Center the video */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* Make the video a bit darker */
+  filter: brightness(50%);
+
+  /* Bring it behind the text */
+  z-index: -1;
+}
+
+/* Button size and color change */
+@import "bootstrap";
+
+$newseccolor: rgb(255, 218, 185);
+
+.btn-outline-secondary {
+  @include button-outline-variant(
+    $newseccolor,
+    #222222,
+    lighten($newseccolor, 5%),
+    $newseccolor
+  );
+  padding: 18px 28px;
+  font-size: 22px;
+  line-height: normal;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Load Screen animations tbd */
+
+$white: #fff;
+$black: #000;
+$winered: #c31432;
+
+$circularLoaderSize: 90px;
+
+@mixin WidthAndHeight($w, $h) {
+  width: $w;
+  height: $h;
+}
+.preloaders {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.loader-wrapper {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 25%;
+  min-width: 300px;
+  min-height: 300px;
+  display: block;
+  z-index: 30000;
+  border: 2px solid $white;
+  justify-content: center;
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  &--2 {
+    background: $white;
+    .loader {
+      @include WidthAndHeight($circularLoaderSize, $circularLoaderSize);
+      .circle-line {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        position: absolute;
+        border-radius: 100%;
+        animation: rotate180 2s infinite;
+        border: 5px solid transparent;
+        border-top-color: $black;
+        @for $i from 1 through 5 {
+          &:nth-child(#{$i}) {
+            left: 20% * ($i - 1);
+            top: 20% * ($i - 1);
+            width: 200% - 40% * ($i - 1);
+            height: 200% - 40% * ($i - 1);
+            animation-delay: 0.5s * ($i - 1);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate180 {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate45 {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    opacity: 0.3;
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  75% {
+    transform: rotate(135deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotateXY {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: rotateY(180deg) rotateX(0deg);
+  }
+  100% {
+    transform: rotateY(180deg) rotateX(180deg);
+  }
+}
+
+@keyframes translateRotateSquares {
+  0%,
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    opacity: 0.3;
+    transform: translate(40px, 40px) rotate(45deg);
+  }
+  50% {
+    transform: translate(0px, 80px) rotate(0deg);
+  }
+  75% {
+    transform: translate(-40px, 40px) rotate(45deg);
+  }
+}
+
+@keyframes translateSquares {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    opacity: 0.3;
+    transform: translate(0px, 5px);
+  }
+  75% {
+    transform: translate(0, 0px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+@keyframes wave {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(-2px, 0px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+
+@keyframes wave2 {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(0, 20px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

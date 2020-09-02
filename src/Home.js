@@ -1,49 +1,31 @@
 import React from "react";
-import { Carousel } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 const Home = () => {
   return (
-    <Carousel>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="../assets/img/ww-website-banner.jpg"
-          alt="First slide"
+    <>
+      <div className="video-container d-flex">
+        <video
+          src="../assets/img/bgVid.mp4"
+          width="100%"
+          height="100%"
+          autoPlay
+          muted
+          loop
         />
-        <Carousel.Caption>
-          <h3 className="text-danger">First slide label</h3>
-          <p className="text-danger">
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+        <Container className="align-self-md-center mb-5">
+          <Row>
+            <Col md={12} className="text-left">
+              <h1 className="display-1 mt-auto">Javascript</h1>
+              <h1 className="display-1 mt-auto">Developer</h1>
+              <Button variant="outline-secondary" className="btn-xl">
+                HIRE ME NOW
+              </Button>{" "}
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </>
   );
 };
 
