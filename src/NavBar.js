@@ -20,7 +20,7 @@ const NavBar = () => {
         className="fixed-top text-center"
         bg="transparent"
         sticky="top"
-        expand="md"
+        expand="lg"
       >
         <Navbar.Brand href="/#">
           <img

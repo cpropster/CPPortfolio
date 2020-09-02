@@ -13,7 +13,7 @@ const Home = () => {
           muted
           loop
         />
-        <Container className="align-self-md-center mb-5">
+        <Container className="align-self-center mb-5 d-flex">
           <Row>
             <Col md={12} className="text-left">
               <h1 className="display-1 mt-auto">Javascript</h1>
